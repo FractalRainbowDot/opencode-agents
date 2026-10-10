@@ -1,7 +1,7 @@
 ---
 description: Design architecture, interfaces, and safe change plans.
 mode: subagent
-model: tailscale-llm/Qwen3.8-Flash-Next#high
+model: opencode-go/glm-5.3-flash#max
 permissions:
   - action: edit
     resource: "*"

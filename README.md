@@ -1,8 +1,8 @@
 # OpenCode agent configuration — transport bundle
 
 Copy the contents of this `opencode/` folder to `~/.config/opencode/` on the
-target device (merge/overwrite), then verify `<provider configuration>` there contains
-both providers before first use.
+target device (merge/overwrite), then verify the model providers resolve
+before first use.
 
 ## Contents
 
@@ -28,11 +28,14 @@ both providers before first use.
 
 ## Models
 
-- All 17 profiles: `tailscale-llm/Qwen3.8-Flash-Next#high`.
-- Provider `tailscale-llm` (Tailscale LLM, OpenAI-compatible) must exist in
-  the target device's `<provider configuration>` with `Qwen3.8-Flash-Next` defined.
+- All 17 profiles: `opencode-go/glm-5.3-flash#max` (provider `opencode-go`,
+  OpenCode Go).
+- Provider availability depends on the target device's OpenCode installation
+  and authentication, not on this repo; no provider entry for it is required
+  in `<provider configuration>`. A Tailscale LLM fallback (`tailscale-llm`) was used in
+  earlier revisions and may or may not exist on a target device.
 - Not included here: `<provider configuration>` provider credentials/endpoints.
-  Copy it separately if the target device lacks it; do not commit secrets.
+  Copy it separately if your target device needs it; do not commit secrets.
 
 ## Install on another device
 
@@ -43,7 +46,7 @@ cp opencode/agents/*.md ~/.config/opencode/agents/
 ```
 
 Then verify: `opencode` agent listing shows the 17 agents, and a short
-subagent launch resolves `tailscale-llm/Qwen3.8-Flash-Next#high`.
+subagent launch resolves `opencode-go/glm-5.3-flash#max`.
 
 ## Notes
 
