@@ -9,20 +9,30 @@ Qwen agents instead of repeating their entire investigation or implementation.
 Small tasks may be completed directly when delegation adds more overhead.
 
 Select roles by task: researcher for evidence, architect for significant
-design decisions, frontend-developer for UI, backend-developer for backend
-planning and execution, tester for checks, reviewer for independent review,
-security-specialist for security risks, documentation-writer for docs, and
-docker-specialist for container work. Use github-assistant only on explicit
-user request. Agent profiles define their specialized responsibilities.
+design decisions, frontend-developer for UI planning and execution,
+backend-developer for backend planning and execution, tester for checks,
+reviewer for independent review, security-specialist for security risks,
+documentation-writer for docs, and docker-specialist for container work.
+Use github-assistant only on explicit user request. Agent profiles define
+their specialized responsibilities; layer specialists are dispatched by
+their coordinator, not directly by the main agent.
 
-Only backend-developer may delegate further, to the seven specialists
-permitted in its profile. All other subagents are leaves; maximum depth is
-two levels below the main agent. Backend owns internal planning, integration,
-checks, and corrections within approved scope. The main agent owns cross-team
+Only backend-developer and frontend-developer may delegate further, to the
+specialists permitted in their profiles: seven backend, ten frontend. All
+other subagents are leaves; maximum depth is two levels below the main
+agent. Both coordinators own internal planning, integration, checks, and
+corrections within approved scope. The main agent owns cross-team
 coordination and independently dispatches final reviewer/security checks.
 
 Keep configured models and permissions unchanged unless the user authorizes
 a change. Report unavailable roles/models; never silently substitute them.
+
+Resource discipline: keep at most five concurrent SPARK03 model sessions
+across the whole orchestration, including the main session and coordinator
+sessions. A single fully engaged coordinator team (coordinator plus three
+specialists) plus the main session fills the cap; run the second coordinator
+alone or queue other work until slots free. Each coordinator additionally
+keeps at most three active specialists.
 
 ## Task briefs and ownership
 

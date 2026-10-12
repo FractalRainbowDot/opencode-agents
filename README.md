@@ -8,27 +8,39 @@ before first use.
 
 - `AGENTS.md` — global rules for the main agent (618 words: coordination,
   task briefs, safety, verification/acceptance, result reporting).
-- `backend-team.md` — shared workflow for the seven backend leaf specialists.
-- `agents/` — 17 role profiles; each frontmatter pins `mode: subagent`,
+- 17 backend/team files + 10 frontend team leaves; `agents/` — 27 role
+  profiles; each frontmatter pins `mode: subagent`,
   a model, and permission rules.
+- `backend-team.md` — shared workflow for the seven backend leaf specialists.
+- `frontend-team.md` — shared workflow for the ten frontend leaf specialists.
 
 ## Role map
 
-- Main agent (your session, any model) coordinates everything.
-- `backend-developer` (coordinator) — only role allowed to delegate further;
-  it may launch exactly these seven specialists, at most three at once:
-  `backend-api-router`, `backend-database`, `backend-service`,
-  `backend-cache`, `backend-background-jobs`, `backend-testing`,
-  `backend-error-handling`.
-- Main-level roles: `researcher`, `architect`, `frontend-developer`,
-  `tester`, `reviewer` (read-only), `security-specialist` (read-only),
+- Main agent (your session, SPARK03 Qwen default) coordinates everything.
+- Two nested teams; max two levels below the main agent:
+  - `backend-developer` (coordinator) — may launch exactly these seven
+    leaf specialists, at most three at once: `backend-api-router`,
+    `backend-database`, `backend-service`, `backend-cache`,
+    `backend-background-jobs`, `backend-testing`,
+    `backend-error-handling`.
+  - `frontend-developer` (coordinator) — may launch exactly these ten
+    leaf specialists, at most three at once: `frontend-ui-components`,
+    `frontend-styling`, `frontend-state`, `frontend-routing`,
+    `frontend-forms`, `frontend-accessibility`, `frontend-testing`,
+    `frontend-performance`, `frontend-i18n`, `frontend-animation`.
+  - Shared workflow files: `backend-team.md` (backend leaves),
+    `frontend-team.md` (frontend leaves).
+- Main-level roles: `researcher`, `architect`, `tester`,
+  `reviewer` (read-only), `security-specialist` (read-only),
   `documentation-writer`, `docker-specialist`.
 - `github-assistant` — only on explicit user request; commit/push/PR/deploy
   are separate authorizations.
+- Resource cap: at most 5 concurrent SPARK03 model sessions overall,
+  including the main session and coordinators' sessions.
 
 ## Models
 
-- All 17 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
+- All 27 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
 - Provider `SPARK03` (OpenAI-compatible, Tailscale endpoint
@@ -45,7 +57,7 @@ cp -r opencode/AGENTS.md opencode/backend-team.md opencode/<provider configurati
 cp opencode/agents/*.md ~/.config/opencode/agents/
 ```
 
-Then verify: `opencode` agent listing shows the 17 agents, and a short
+Then verify: `opencode` agent listing shows the 27 agents, and a short
 subagent launch resolves `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
 
 ## Notes
