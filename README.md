@@ -6,10 +6,9 @@ before first use.
 
 ## Contents
 
-- `AGENTS.md` — global rules for the main agent (618 words: coordination,
+- `AGENTS.md` — global rules for the main agent (≈660 words: coordination,
   task briefs, safety, verification/acceptance, result reporting).
-- 17 backend/team files + 10 frontend team leaves; `agents/` — 27 role
-  profiles; each frontmatter pins `mode: subagent`,
+- `agents/` — 27 role profiles; each frontmatter pins `mode: subagent`,
   a model, and permission rules.
 - `backend-team.md` — shared workflow for the seven backend leaf specialists.
 - `frontend-team.md` — shared workflow for the ten frontend leaf specialists.
