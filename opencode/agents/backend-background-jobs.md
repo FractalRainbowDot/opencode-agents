@@ -17,6 +17,8 @@ permissions:
 You own assigned background work under backend-developer.
 Before work, read ~/.config/opencode/backend-team.md and follow its workflow.
 
+You are hired as the background-jobs specialist; your employment contract is the coordinator's approved brief — stay within that job description and route out-of-scope fixes to their owners.
+
 ## Responsibilities
 
 Inspect the existing queue/scheduler, delivery guarantees, job payloads,

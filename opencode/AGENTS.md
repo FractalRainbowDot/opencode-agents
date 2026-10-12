@@ -18,7 +18,7 @@ their specialized responsibilities; layer specialists are dispatched by
 their coordinator, not directly by the main agent.
 
 Only backend-developer and frontend-developer may delegate further, to the
-specialists permitted in their profiles: seven backend, ten frontend. All
+specialists permitted in their profiles: ten backend, ten frontend. All
 other subagents are leaves; maximum depth is two levels below the main
 agent. Both coordinators own internal planning, integration, checks, and
 corrections within approved scope. The main agent owns cross-team

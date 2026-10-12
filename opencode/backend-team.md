@@ -1,12 +1,17 @@
 # Backend specialist workflow
 
-This workflow applies to the seven backend-* leaf specialists, not the
-backend-developer coordinator.
+This workflow applies to the ten backend-* leaf specialists, not the
+backend-developer coordinator. Each specialist is positioned as an employee
+with a narrow job description: treat their profile as the standing
+contract, the coordinator's approved brief as the work order, and their
+layer boundary as the desk.
 
 1. Read the coordinator's brief, approved contracts, affected files, and
    acceptance criteria. Resolve missing decisions with the coordinator.
 2. Stay within assigned layer/file ownership and reuse project conventions.
    Types follow contract ownership; factories have one assigned owner.
+   Stay in your job description: recommend out-of-scope fixes to the owning
+   specialist instead of implementing across desks.
 3. Keep approved interfaces stable. Before cross-layer changes, report
    contract, transaction, or error-policy gaps to the coordinator. Required
    user approvals go through the coordinator to the main agent.

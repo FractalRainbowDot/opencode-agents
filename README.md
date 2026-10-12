@@ -8,7 +8,7 @@ before first use.
 
 - `AGENTS.md` — global rules for the main agent (≈660 words: coordination,
   task briefs, safety, verification/acceptance, result reporting).
-- `agents/` — 27 role profiles; each frontmatter pins `mode: subagent`,
+- `agents/` — 30 role profiles; each frontmatter pins `mode: subagent`,
   a model, and permission rules.
 - `backend-team.md` — shared workflow for the seven backend leaf specialists.
 - `frontend-team.md` — shared workflow for the ten frontend leaf specialists.
@@ -17,11 +17,12 @@ before first use.
 
 - Main agent (your session, SPARK03 Qwen default) coordinates everything.
 - Two nested teams; max two levels below the main agent:
-  - `backend-developer` (coordinator) — may launch exactly these seven
+  - `backend-developer` (coordinator) — may launch exactly these ten
     leaf specialists, at most three at once: `backend-api-router`,
     `backend-database`, `backend-service`, `backend-cache`,
     `backend-background-jobs`, `backend-testing`,
-    `backend-error-handling`.
+    `backend-error-handling`, `backend-observability`,
+    `backend-performance`, `backend-integration`.
   - `frontend-developer` (coordinator) — may launch exactly these ten
     leaf specialists, at most three at once: `frontend-ui-components`,
     `frontend-styling`, `frontend-state`, `frontend-routing`,
