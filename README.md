@@ -65,7 +65,31 @@ before first use.
   `TAILSCALE_LLM_API_KEY` environment variable. Never commit provider
   configuration or the actual key.
 
-## Install on another device
+## Install on any machine (one line)
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/FractalRainbowDot/opencode-agents/main/install.sh | bash
+```
+
+What it does:
+
+- Installs `AGENTS.md`, `backend-team.md`, `frontend-team.md` and all
+  **30 agent profiles** into `~/.config/opencode/` (respects
+  `OPENCODE_HOME` override).
+- **Backs up** any existing file it replaces (`.bak.<timestamp>`) — your
+  own rules are preserved, never silently overwritten.
+- Creates `opencode.json` **only if none exists**, with a provider
+  template where you must fill **your own** OpenAI-compatible `baseURL`
+  and API-key env (`TAILSCALE_LLM_API_KEY` or another name). An existing
+  `opencode.json` is never modified by the script.
+- Prints install/verification results; target restart or relaunch of
+  OpenCode applies the new agents.
+
+Works on Linux/macOS (bash + curl). No sudo; everything stays in `$HOME`.
+The bundle author's model endpoint is on a private network — point the
+template at your own LLM endpoint.
+
+## Manual install on another device
 
 ```sh
 mkdir -p ~/.config/opencode/agents
