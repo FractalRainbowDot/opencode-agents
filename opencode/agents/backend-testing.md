@@ -1,7 +1,7 @@
 ---
 description: Independent backend-layer integration and regression testing for the coordinator.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#high
+model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
 permissions:
   - action: edit
     resource: "*"

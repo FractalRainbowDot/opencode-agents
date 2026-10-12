@@ -1,7 +1,7 @@
 ---
 description: "Backend third-party integrations: webhooks, external APIs, adapters, and auth flows."
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#high
+model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
 permissions:
   - action: edit
     resource: "*"

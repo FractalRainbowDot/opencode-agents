@@ -1,7 +1,7 @@
 ---
 description: Coordinate frontend layers, contracts, and end-to-end interface implementation.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#high
+model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
 permissions:
   - action: edit
     resource: "*"

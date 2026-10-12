@@ -1,7 +1,7 @@
 ---
 description: Form composition, client validation, submit flows, and dirty-state safety.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#high
+model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
 permissions:
   - action: edit
     resource: "*"
