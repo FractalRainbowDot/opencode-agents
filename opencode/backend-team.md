@@ -1,10 +1,14 @@
 # Backend specialist workflow
 
 This workflow applies to the ten backend-* leaf specialists, not the
-backend-developer coordinator. Each specialist is positioned as an employee
-with a narrow job description: treat their profile as the standing
-contract, the coordinator's approved brief as the work order, and their
-layer boundary as the desk.
+backend-developer coordinator. The team mirrors a proven industry shape:
+backend-service is the stream-aligned vertical implementer; database,
+cache, background-jobs, integration, and api-router act as platform/shared-
+surface desks; testing, error-handling, observability, and performance are
+enabling desks. Each specialist is positioned as an employee with a narrow
+job description: treat their profile as the standing contract, the
+coordinator's approved brief as the work order, and their layer boundary
+as the desk.
 
 1. Read the coordinator's brief, approved contracts, affected files, and
    acceptance criteria. Resolve missing decisions with the coordinator.
