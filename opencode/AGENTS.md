@@ -27,12 +27,19 @@ coordination and independently dispatches final reviewer/security checks.
 Keep configured models and permissions unchanged unless the user authorizes
 a change. Report unavailable roles/models; never silently substitute them.
 
-Resource discipline: keep at most five concurrent SPARK03 model sessions
-across the whole orchestration, including the main session and coordinator
-sessions. A single fully engaged coordinator team (coordinator plus three
-specialists) plus the main session fills the cap; run the second coordinator
-alone or queue other work until slots free. Each coordinator additionally
-keeps at most three active specialists.
+Resource discipline: at most five concurrent SPARK03 model sessions may be
+active, counted honestly — the main session, every running coordinator, and
+every running specialist; finished subagents free their slot immediately.
+A coordinator may delegate whenever a slot remains free (five minus the
+currently active count), within its own limit of three active specialists.
+The cap limits concurrency, not delegation scope. Never go solo because of
+the cap while slots remain free; over-caution there is as harmful as
+exceeding it. If the count is unclear, recount actual active sessions
+instead of assuming, then state the planned slot usage in the task plan.
+
+Vision discipline: the SPARK03 Qwen endpoint currently rejects image input;
+do not attach or forward screenshots to it. Handle visual material in a
+session on a vision-capable model or transcribe its textual content first.
 
 ## Task briefs and ownership
 

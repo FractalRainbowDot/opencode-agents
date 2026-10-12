@@ -38,9 +38,25 @@ before first use.
 - Resource cap: at most 5 concurrent SPARK03 model sessions overall,
   including the main session and coordinators' sessions.
 
+## Model runtime notes
+
+- The SPARK03 Qwen endpoint currently rejects image input (LiteLLM vision
+  worker panic). Declare text-only capabilities in your provider block:
+
+  ```json
+  "capabilities": {
+    "tools": true,
+    "input": ["text"],
+    "output": ["text"]
+  }
+  ```
+
+  and never attach screenshots to sessions on this model; use a
+  vision-capable session for images or transcribe the content.
+
 ## Models
 
-- All 27 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
+- All 30 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
 - Provider `SPARK03` is NOT stored in this repository: on each target
