@@ -43,17 +43,17 @@ before first use.
 - All 27 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
-- Provider `SPARK03` (OpenAI-compatible, Tailscale endpoint
-  `<provider-endpoint>`) is defined in the bundled
-  `opencode/<provider configuration>`; the API key itself comes from the
-  `TAILSCALE_LLM_API_KEY` environment variable and must be set on the
-  target device. Never commit the actual key.
+- Provider `SPARK03` is NOT stored in this repository: on each target
+  device define it in `~/.config/opencode/<provider configuration>` yourself
+  (OpenAI-compatible, your own endpoint); the API key comes from the
+  `TAILSCALE_LLM_API_KEY` environment variable. Never commit provider
+  configuration or the actual key.
 
 ## Install on another device
 
 ```sh
 mkdir -p ~/.config/opencode/agents
-cp -r opencode/AGENTS.md opencode/backend-team.md opencode/<provider configuration> ~/.config/opencode/
+cp -r opencode/AGENTS.md opencode/backend-team.md ~/.config/opencode/
 cp opencode/agents/*.md ~/.config/opencode/agents/
 ```
 
