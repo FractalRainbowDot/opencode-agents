@@ -44,8 +44,8 @@ before first use.
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
 - Provider `SPARK03` is NOT stored in this repository: on each target
-  device define it in `~/.config/opencode/<provider configuration>` yourself
-  (OpenAI-compatible, your own endpoint); the API key comes from the
+  device define it in `~/.config/opencode/` yourself (OpenAI-compatible,
+  your own endpoint); the API key comes from the
   `TAILSCALE_LLM_API_KEY` environment variable. Never commit provider
   configuration or the actual key.
 
