@@ -27,10 +27,10 @@ coordination and independently dispatches final reviewer/security checks.
 Keep configured models and permissions unchanged unless the user authorizes
 a change. Report unavailable roles/models; never silently substitute them.
 
-Resource discipline: at most five concurrent SPARK03 model sessions may be
+Resource discipline: at most seven concurrent SPARK03 model sessions may be
 active, counted honestly — the main session, every running coordinator, and
 every running specialist; finished subagents free their slot immediately.
-A coordinator may delegate whenever a slot remains free (five minus the
+A coordinator may delegate whenever a slot remains free (seven minus the
 currently active count), within its own limit of three active specialists.
 The cap limits concurrency, not delegation scope. Never go solo because of
 the cap while slots remain free; over-caution there is as harmful as
