@@ -1,7 +1,7 @@
 ---
 description: User-requested patch descriptions, Git/GitHub workflows, and authorized publication.
 mode: subagent
-model: opencode-go/glm-5.3-flash#max
+model: SPARK03/Qwen3.8-Flash-Next-devs02#high
 permissions:
   - action: edit
     resource: "*"

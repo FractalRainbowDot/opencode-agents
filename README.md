@@ -28,25 +28,25 @@ before first use.
 
 ## Models
 
-- All 17 profiles: `opencode-go/glm-5.3-flash#max` (provider `opencode-go`,
-  OpenCode Go).
-- Provider availability depends on the target device's OpenCode installation
-  and authentication, not on this repo; no provider entry for it is required
-  in `<provider configuration>`. A Tailscale LLM fallback (`tailscale-llm`) was used in
-  earlier revisions and may or may not exist on a target device.
-- Not included here: `<provider configuration>` provider credentials/endpoints.
-  Copy it separately if your target device needs it; do not commit secrets.
+- All 17 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
+- Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
+  (root `model` key; the session can still switch variants/models).
+- Provider `SPARK03` (OpenAI-compatible, Tailscale endpoint
+  `<provider-endpoint>`) is defined in the bundled
+  `opencode/<provider configuration>`; the API key itself comes from the
+  `TAILSCALE_LLM_API_KEY` environment variable and must be set on the
+  target device. Never commit the actual key.
 
 ## Install on another device
 
 ```sh
 mkdir -p ~/.config/opencode/agents
-cp -r opencode/AGENTS.md opencode/backend-team.md ~/.config/opencode/
+cp -r opencode/AGENTS.md opencode/backend-team.md opencode/<provider configuration> ~/.config/opencode/
 cp opencode/agents/*.md ~/.config/opencode/agents/
 ```
 
 Then verify: `opencode` agent listing shows the 17 agents, and a short
-subagent launch resolves `opencode-go/glm-5.3-flash#max`.
+subagent launch resolves `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
 
 ## Notes
 
