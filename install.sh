@@ -79,7 +79,7 @@ if [ ! -f "$DEST/opencode.json" ]; then
 }
 EOF
   echo "    created template: $DEST/opencode.json — set baseURL and export TAILSCALE_LLM_API_KEY"
-  echo "    IMPORTANT:**************************** never commit this file with real values."
+  echo "    IMPORTANT: never commit this file with real values."
 elif ! grep -q 'SPARK03' "$DEST/opencode.json"; then
   echo "    existing opencode.json kept. Add a 'SPARK03' provider (OpenAI-compatible; text-only Qwen capabilities) or the roles will report the model as unavailable."
 else
