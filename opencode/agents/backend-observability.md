@@ -1,5 +1,5 @@
 ---
-description: Backend observability: metrics, structured logs, tracing, and alert rules.
+description: "Backend observability: metrics, structured logs, tracing, and alert rules."
 mode: subagent
 model: SPARK03/Qwen3.8-Flash-Next-devs02#high
 permissions:

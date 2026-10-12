@@ -1,5 +1,5 @@
 ---
-description: Backend performance: load testing, profiling, and measured bottleneck removal.
+description: "Backend performance: load testing, profiling, and measured bottleneck removal."
 mode: subagent
 model: SPARK03/Qwen3.8-Flash-Next-devs02#high
 permissions:
