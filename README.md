@@ -78,10 +78,9 @@ What it does:
   `OPENCODE_HOME` override).
 - **Backs up** any existing file it replaces (`.bak.<timestamp>`) — your
   own rules are preserved, never silently overwritten.
-- Creates `opencode.json` **only if none exists**, with a provider
-  template where you must fill **your own** OpenAI-compatible `baseURL`
-  and API-key env (`TAILSCALE_LLM_API_KEY` or another name). An existing
-  `opencode.json` is never modified by the script.
+- **Does not touch model/provider configuration at all**: an existing
+  `opencode.json` is left untouched and none is created; point your own
+  OpenCode model setup at whichever endpoint you have.
 - Prints install/verification results; target restart or relaunch of
   OpenCode applies the new agents.
 
