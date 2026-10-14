@@ -72,10 +72,10 @@ accessibility, testing, performance, i18n, and animation — only when the
 work actually spans them. Keep at most two active specialist sessions,
 including background work, and reserve one specialist slot: specialist-grade
 work goes to the owning specialist rather than being done by you when any
-slot is free. Two-role work is a dispatch trigger, not a_SERIAL wait:
-implementer plus tester (or two layer owners) usually run in parallel on
-disjoint files for substantial UI work. Wait for completion before opening
-a slot beyond two.
+slot is free. Two-role work is a dispatch trigger rather than a serial
+wait: implementer plus tester, or two layer owners, usually run in
+parallel on disjoint files for substantial UI work. Wait for completion
+before opening a slot beyond two.
 Provide each specialist the approved brief and contracts; their fresh
 contexts do not inherit your conversation or restrictions. Assign disjoint
 file ownership and serialize shared-file changes.
