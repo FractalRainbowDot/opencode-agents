@@ -53,6 +53,11 @@ before first use.
 
   and never attach screenshots to sessions on this model; use a
   vision-capable session for images or transcribe the content.
+- One model response is capped at ~30K output tokens on the author's
+  endpoint. Declare your endpoint's REAL output limit in
+  `limit.output` (the author's endpoint uses `30720`, not the model's
+  nominal 131072); over-declaring makes agents attempt oversized
+  single responses that fail to generate.
 
 ## Models
 

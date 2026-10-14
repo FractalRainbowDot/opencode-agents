@@ -45,6 +45,15 @@ Vision discipline: the SPARK03 Qwen endpoint currently rejects image input;
 do not attach or forward screenshots to it. Handle visual material in a
 session on a vision-capable model or transcribe its textual content first.
 
+Output discipline: one model response is hard-capped at roughly 30K output
+tokens on this endpoint. Size each step accordingly: prefer many small
+tool calls over one long message; split large files, migrations, and
+reports into successive writes instead of one attempt; if the remaining
+budget is small, record state (draft, plan, partial result) and continue
+in the next step rather than risking truncation. If an answer is cut off,
+say so and resume from saved state; never present a truncated artifact as
+complete. Coordinators pass this constraint to their specialists in briefs.
+
 ## Task briefs and ownership
 
 Provide each agent a compact brief: goal, scope and owned files, acceptance
