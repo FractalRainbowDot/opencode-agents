@@ -1,7 +1,7 @@
 ---
 description: Independently review changes for bugs, regressions, and requirement violations.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
+model: opencode-go/glm-5.3-flash#max
 permissions:
   - action: edit
     resource: "*"

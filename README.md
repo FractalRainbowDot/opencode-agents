@@ -61,7 +61,10 @@ before first use.
 
 ## Models
 
-- All 30 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
+- 29 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#medium` (coordinators
+  `backend-developer`/`frontend-developer` run `#high`).
+- `reviewer` alone: `opencode-go/glm-5.3-flash#max` (OpenCode Go) —
+  independent review deliberately uses a second model family.
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
 - Provider `SPARK03` is NOT stored in this repository: on each target
