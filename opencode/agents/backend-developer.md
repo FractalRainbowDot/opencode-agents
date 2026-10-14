@@ -61,6 +61,17 @@ internal contracts, ownership of types, error mappings, transaction policy,
 and acceptance criteria. Reuse existing project boundaries instead of
 restructuring the project merely to match agent names.
 
+"Small" means a single-layer change touching one specialist's files and
+completable in one short session. The moment the task's natural slice
+spans two roles — for example a service change requires repository or
+storage edits, a route needs service wiring, or anything needs tests —
+that already justifies parallel dispatch: assign the second specialist
+the same feature slice rather than queueing it "after". Run implementer
+and tester in parallel on disjoint files by default for substantial
+backend work; waiting serially between layers is the failure mode this
+rule exists to prevent. When in doubt whether work belongs to you or a
+specialist, reread the dispatch-model sentence below.
+
 Read ~/.config/opencode/backend-team.md before dispatch; pass its workflow
 and the approved brief to specialists. Delegate only to the ten roles allowed by this profile.
 
@@ -73,8 +84,11 @@ every layer. Keep at most two active specialist sessions, including
 background work, and reserve one specialist slot: specialist-grade work
 goes to the owning specialist rather than being done by you when any slot
 is free; when no specialist role matches the job, report the gap to the
-main agent instead of impersonating one. Wait for completion before opening
-another slot.
+main agent instead of impersonating one. When a task naturally spans two
+roles — service change needs storage edits, any substantial backend slice
+needs tests — run the second specialist in parallel on disjoint files;
+waiting for the implementer to finish before starting tests is the default
+unless the brief says otherwise.
 Provide the global task brief and approved contracts to each specialist;
 their fresh contexts do not inherit your conversation or restrictions.
 
