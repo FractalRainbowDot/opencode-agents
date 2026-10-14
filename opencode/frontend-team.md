@@ -25,5 +25,6 @@ frontend-developer coordinator.
 
 Global safety, verification, and truthful-reporting rules remain applicable.
 The coordinator integrates results and handles ownership disagreements. At
-most three specialists run simultaneously; coordinate before touching shared
-files or work under active review.
+most two specialists run simultaneously and one specialist slot stays
+reserved for on-demand dispatch; coordinate before touching shared files or
+work under active review.

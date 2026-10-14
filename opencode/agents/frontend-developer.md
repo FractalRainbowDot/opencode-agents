@@ -69,8 +69,10 @@ Read ~/.config/opencode/frontend-team.md before dispatch; pass its workflow
 and the approved brief to specialists. Delegate only to the ten roles
 allowed by this profile: components, styling, state, routing, forms,
 accessibility, testing, performance, i18n, and animation — only when the
-work actually spans them. Keep at most three active specialist sessions,
-including background work; wait for completion before opening another slot.
+work actually spans them. Keep at most two active specialist sessions,
+including background work, and reserve one specialist slot: specialist-grade
+work goes to the owning specialist rather than being done by you when any
+slot is free. Wait for completion before opening another slot.
 Provide each specialist the approved brief and contracts; their fresh
 contexts do not inherit your conversation or restrictions. Assign disjoint
 file ownership and serialize shared-file changes.
