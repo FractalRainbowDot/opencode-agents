@@ -30,16 +30,16 @@ a change. Report unavailable roles/models; never silently substitute them.
 Resource discipline: at most eight concurrent SPARK03 subagent sessions may
 be active, counted honestly — every running coordinator and every running
 specialist; the main agent's own session does not count against the cap.
-Finished subagents free their slot immediately. A coordinator runs at most
-two active specialists and reserves one slot for a specialist: when the
-coordinator itself would implement, check, or review specialist-grade work,
-it dispatches the owning specialist instead unless every slot is busy or
-the coordinator demonstrably lacks any role with that job description in
-which case it reports the gap. The cap limits concurrency, not delegation
-scope. Never go solo because of the cap while slots remain free; over-caution
-there is as harmful as exceeding it. If the count is unclear, recount actual
-active sessions instead of assuming, then state the planned slot usage in
-the task plan.
+Finished subagents free their slot immediately. No per-coordinator limit on
+active specialists exists: a coordinator may run as many specialists as the
+global cap allows (eight minus currently active subagents). Specialist-grade
+work still goes to the owning specialist instead of being implemented,
+checked, or reviewed by the coordinator when a suitable role exists; when no
+role matches the job, report the gap to the main agent. The cap limits
+concurrency, not delegation scope. Never go solo because of the cap while
+slots remain free; over-caution there is as harmful as exceeding it. If the
+count is unclear, recount actual active sessions instead of assuming, then
+state the planned slot usage in the task plan.
 
 Vision discipline: the SPARK03 Qwen endpoint currently rejects image input;
 do not attach or forward screenshots to it. Handle visual material in a

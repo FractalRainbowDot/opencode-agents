@@ -18,13 +18,13 @@ before first use.
 - Main agent (your session, SPARK03 Qwen default) coordinates everything.
 - Two nested teams; max two levels below the main agent:
   - `backend-developer` (coordinator) — may launch exactly these ten
-    leaf specialists, at most two at once (one slot reserved for dispatcher): `backend-api-router`,
+    leaf specialists; dispatch freely within the global cap: `backend-api-router`,
     `backend-database`, `backend-service`, `backend-cache`,
     `backend-background-jobs`, `backend-testing`,
     `backend-error-handling`, `backend-observability`,
     `backend-performance`, `backend-integration`.
   - `frontend-developer` (coordinator) — may launch exactly these ten
-    leaf specialists, at most two at once (one slot reserved for dispatcher): `frontend-ui-components`,
+    leaf specialists; dispatch freely within the global cap: `frontend-ui-components`,
     `frontend-styling`, `frontend-state`, `frontend-routing`,
     `frontend-forms`, `frontend-accessibility`, `frontend-testing`,
     `frontend-performance`, `frontend-i18n`, `frontend-animation`.

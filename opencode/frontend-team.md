@@ -24,7 +24,6 @@ frontend-developer coordinator.
    forwarding full logs.
 
 Global safety, verification, and truthful-reporting rules remain applicable.
-The coordinator integrates results and handles ownership disagreements. At
-most two specialists run simultaneously and one specialist slot stays
-reserved for on-demand dispatch; coordinate before touching shared files or
-work under active review.
+The coordinator integrates results and handles ownership disagreements.
+Specialists may run in parallel while the global cap allows; coordinate
+before touching shared files or work under active review.
