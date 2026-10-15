@@ -27,7 +27,7 @@ coordination and independently dispatches final reviewer/security checks.
 Keep configured models and permissions unchanged unless the user authorizes
 a change. Report unavailable roles/models; never silently substitute them.
 
-Resource discipline: at most seven concurrent SPARK03 subagent sessions may
+Resource discipline: at most eight concurrent SPARK03 subagent sessions may
 be active, counted honestly — every running coordinator and every running
 specialist; the main agent's own session does not count against the cap.
 Finished subagents free their slot immediately. A coordinator runs at most

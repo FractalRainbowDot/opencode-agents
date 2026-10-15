@@ -35,7 +35,7 @@ before first use.
   `documentation-writer`, `docker-specialist`.
 - `github-assistant` — only on explicit user request; commit/push/PR/deploy
   are separate authorizations.
-- Resource cap: at most 7 concurrent SPARK03 subagent sessions overall
+- Resource cap: at most 8 concurrent SPARK03 subagent sessions overall
   (coordinators + specialists; the main session does not count).
 
 ## Model runtime notes
