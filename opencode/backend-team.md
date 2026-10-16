@@ -17,8 +17,10 @@ as the desk.
    Stay in your job description: recommend out-of-scope fixes to the owning
    specialist instead of implementing across desks.
 3. Keep approved interfaces stable. Before cross-layer changes, report
-   contract, transaction, or error-policy gaps to the coordinator. Required
-   user approvals go through the coordinator to the main agent.
+   contract, transaction, or error-policy gaps to the coordinator. Never
+   expand the assigned change scope unilaterally: report the need first;
+   the coordinator reassigns it to the layer owner or the main agent
+   authorizes the expansion separately.
 4. Run relevant isolated checks, confirming target resources first. Return
    production defects to their owner; backend-testing edits only tests and
    helpers. Backend-error-handling edits only assigned error-policy files.

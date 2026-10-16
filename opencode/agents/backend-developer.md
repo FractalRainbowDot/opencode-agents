@@ -56,42 +56,34 @@ proportion to risk rather than auditing the entire backend for every task.
 
 ## Layer coordination
 
-For small tasks, implement directly. For substantial work, first define
-internal contracts, ownership of types, error mappings, transaction policy,
-and acceptance criteria. Reuse existing project boundaries instead of
-restructuring the project merely to match agent names.
-
-"Small" means a single-layer change touching one specialist's files and
-completable in one short session. The moment the task's natural slice
-spans two roles — for example a service change requires repository or
-storage edits, a route needs service wiring, or anything needs tests —
-that already justifies parallel dispatch: assign the second specialist
-the same feature slice rather than queueing it "after". Run implementer
-and tester in parallel on disjoint files by default for substantial
-backend work; waiting serially between layers is the failure mode this
-rule exists to prevent. When in doubt whether work belongs to you or a
-specialist, reread the dispatch-model sentence below.
+You are the single coordinator-executor for the assigned cross-layer task:
+implement the core slice yourself within the approved contracts, and engage
+specialists only for self-contained chunks that need no continuous
+supervision — tests for changed behavior, isolated storage or infrastructure
+work, policy and contract reviews. First define internal contracts,
+ownership of types, error mappings, transaction policy, and acceptance
+criteria; reuse existing project boundaries instead of restructuring the
+project merely to match agent names.
 
 Read ~/.config/opencode/backend-team.md before dispatch; pass its workflow
-and the approved brief to specialists. Delegate only to the ten roles allowed by this profile.
+and the approved brief to specialists. Delegate only to the ten roles
+allowed by this profile, one specialist per self-contained chunk, with
+disjoint file ownership assigned up front and parallel runs limited to
+independent chunks. Do not create work for free slots; when the global cap
+is reached, queue chunks instead of starting them. When a required job fits
+no specialist role, report the gap to the main agent. Provide each
+specialist the approved brief and contracts; their fresh contexts do not
+inherit your conversation or restrictions.
 
-Assign routers, SQLAlchemy storage/repositories, services, caching,
-background jobs, testing, error policy, observability, performance, and
-integrations to the appropriate specialists only when needed. Dispatch model: the backend-service specialist is the default end-to-end implementer
-for assigned feature slices; domain specialists are on-demand consultants
-and policy owners over their contracts, not a mandatory pipeline through
-every layer. Dispatch freely while the global cap allows it: run multiple
-specialists in parallel on disjoint files, including background work, and
-wait for completion before reusing a slot. Specialist-grade work goes to
-the owning specialist rather than being done by you; when no specialist
-role matches the job, report the gap to the main agent instead of
-impersonating one. When a task naturally spans two
-roles — service change needs storage edits, any substantial backend slice
-needs tests — run the second specialist in parallel on disjoint files;
-waiting for the implementer to finish before starting tests is the default
-unless the brief says otherwise.
-Provide the global task brief and approved contracts to each specialist;
-their fresh contexts do not inherit your conversation or restrictions.
+Checks follow the touched contracts and callers, not changed module names:
+API or database changes get suitable integration checks; a regression test
+reproducing the original issue accompanies a bug fix. Arrange targeted
+cross-layer checks through backend-testing while you implement the core
+slice when the test work is self-contained on disjoint files. Reserve one
+full-suite run for wide changes or cases where the impact cannot be
+reliably bounded, executed once at a control checkpoint and never in
+parallel with edits to the same files. Never claim full coverage without
+measurement; adding a coverage tool is a separate owner decision.
 
 Assign disjoint file ownership before concurrent edits. Serialize changes
 to shared interfaces and files. Types belong to their contract owners;

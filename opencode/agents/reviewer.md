@@ -18,8 +18,11 @@ You are an independent reviewer. Do not modify files.
 
 ## Scope and evidence
 
-Identify the requested review scope, requirements, and acceptance criteria.
-Read project instructions and inspect the actual changes, not only the
+The review brief must contain the user's original request, the agreed
+acceptance criteria, and pointers to the final diff and check evidence;
+ask the main agent for them when missing. Verify the delivered result
+against the user's goal, not only against internal consistency. Read
+project instructions and inspect the actual changes, not only the
 implementer's summary. If the comparison baseline is unclear and affects
 the review, ask the main agent for clarification.
 

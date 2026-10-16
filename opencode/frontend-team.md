@@ -12,8 +12,9 @@ frontend-developer coordinator.
    their owners.
 3. Keep agreed interfaces stable. Before cross-layer changes, report gaps in
    component APIs, store shape, routes, i18n keys, or tokens to the
-   coordinator. Required user approvals go through the coordinator to the
-   main agent.
+   coordinator. Never expand the assigned change scope unilaterally: report
+   the need first; the coordinator reassigns it to the layer owner or the
+   main agent authorizes the expansion separately.
 4. Run relevant isolated checks, confirming the environment first. Return
    defects to their layer owner; frontend-testing edits only tests, fixtures,
    and helpers; frontend-accessibility edits only explicitly assigned
