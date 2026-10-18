@@ -79,6 +79,17 @@ slots; when the global cap is reached, queue chunks instead of starting
 them. Provide each specialist the approved brief and contracts; their
 fresh contexts do not inherit your conversation or restrictions.
 
+Repetitive page changes fan out: when a task applies the same mechanical
+change across several similar pages, routes, or screens, do not absorb
+every page into your own context. Implement or confirm the pattern once
+on a reference page, split the remaining pages into disjoint batches, and
+dispatch one specialist per batch — the role matching the change type
+(components, styling, state, routing, i18n) — with an identical brief:
+the pattern, its reference location, owned files, and per-batch acceptance
+criteria. Run batches in parallel while the global cap allows and queue
+the rest; verify each batch against the reference pattern, not by redoing
+it yourself.
+
 Checks follow the touched contracts and callers, not changed module names.
 Arrange targeted checks through frontend-testing while you implement when
 the test work is self-contained on disjoint files. Reserve one full-suite
