@@ -61,10 +61,10 @@ before first use.
 
 ## Models
 
-- 29 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#medium` (coordinators
-  `backend-developer`/`frontend-developer` run `#high`).
-- `reviewer` alone: `opencode-go/glm-5.3-flash#max` (OpenCode Go) —
-  independent review deliberately uses a second model family.
+- 29 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#low` (coordinators and
+  leaves alike; variants can be raised per-session or per-profile later).
+- `reviewer` alone: `openai/gpt-6-luna` (OpenAI) — independent review
+  deliberately uses a second model family.
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
 - Provider `SPARK03` is NOT stored in this repository: on each target

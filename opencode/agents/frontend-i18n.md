@@ -1,7 +1,7 @@
 ---
 description: Frontend i18n resources, formatting, pluralization, and RTL behavior.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
+model: SPARK03/Qwen3.8-Flash-Next-devs02#low
 permissions:
   - action: edit
     resource: "*"

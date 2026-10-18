@@ -1,7 +1,7 @@
 ---
 description: Independently review changes for bugs, regressions, and requirement violations.
+model: openai/gpt-6-luna
 mode: subagent
-model: opencode-go/glm-5.3-flash#max
 permissions:
   - action: edit
     resource: "*"

@@ -1,7 +1,7 @@
 ---
 description: Background workers, scheduling, retries, and reliable job execution.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#medium
+model: SPARK03/Qwen3.8-Flash-Next-devs02#low
 permissions:
   - action: edit
     resource: "*"
