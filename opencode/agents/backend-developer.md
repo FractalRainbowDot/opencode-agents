@@ -91,6 +91,13 @@ assign factories and dependency composition to one explicit owner.
 Keep infrastructure implementations behind agreed interfaces. SQLAlchemy
 belongs in storage; portability claims require checks on the target dialect.
 
+Relay long assignments: plan self-contained chunks up front, each in its
+own fresh specialist session. When your context is heavy after many file
+reads, specialist reports, or correction rounds, close the current step
+and return a compact handoff — done-work, code state, key decisions and
+evidence paths, next step — instead of pushing to a degraded state; the
+main agent re-dispatches the next chunk from it.
+
 The application service defines the business-operation transaction boundary;
 storage implements it. Repository-local commits require an explicit contract
 reason. Approve retry and error policy across layers before implementation.

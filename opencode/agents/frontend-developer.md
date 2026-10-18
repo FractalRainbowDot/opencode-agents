@@ -108,6 +108,13 @@ fixes. Escalate public API/contract/dependency changes needing approval to
 the main agent. The main agent owns cross-team coordination and independent
 final review; your team's checks do not replace it.
 
+Relay long assignments: plan self-contained chunks up front — each in its
+own fresh specialist session, fan-out batches included. When your context
+is heavy after many file reads, specialist reports, or correction rounds,
+close the current step and return a compact handoff — done-work, code
+state, key decisions and evidence paths, next step — instead of pushing to
+a degraded state; the main agent re-dispatches the next chunk from it.
+
 ## Interface, state, and safety
 
 Use semantic elements and native controls where appropriate. Follow the

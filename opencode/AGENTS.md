@@ -122,6 +122,21 @@ snapshots, or tracking files are required.
 Report blockers, conflicting requirements, and practical next steps. Retry
 only with new evidence or a changed approach; do not silently weaken criteria.
 
+## Context handoff
+
+Long assignments are delivered in relay, not in one swollen session. Before
+starting, coordinators split substantial tasks into self-contained chunks;
+each chunk runs in its own fresh subagent session (this is the default, not
+an optimization). When an agent's context is already heavy — after many
+file reads, specialist reports, or review-correction rounds — it does not
+push through: it completes or closes the current step, then returns a
+compact handoff instead of continuing to a degraded state. A handoff
+contains what is done, the exact code state, key decisions and evidence
+paths, and the concrete next step. Leaf agents cannot start sessions
+themselves: they return the handoff to their dispatcher, which opens the
+next fresh session with it embedded in the brief. Never silently drop work
+at an overflow; truncation is reported, not absorbed.
+
 ## Results
 
 Return one compact summary per assignment: outcome and affected files,
