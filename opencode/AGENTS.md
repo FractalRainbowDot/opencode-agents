@@ -58,6 +58,16 @@ rather than risking truncation. If an answer is cut off, say so and resume
 from saved state; never present a truncated artifact as complete.
 Coordinators pass this constraint to their specialists in briefs.
 
+Staged writes for large files: estimate the target size before the first
+write — use the line count of the file being replaced or of a similar
+reference file. Anything expected beyond roughly 300 lines or 15 KB goes
+out staged from the start, not as one attempt: write a skeleton with
+placeholder markers (for example PART2/PART3), then replace each marker
+with the next section by edit, keeping every intermediate state a valid
+file. A full-file write gets exactly one attempt; if its response is
+interrupted or truncated, switch to staged chunks immediately — repeating
+the same oversized write is prohibited.
+
 ## Task briefs and ownership
 
 Provide each agent a compact brief: goal, scope and owned files, acceptance
