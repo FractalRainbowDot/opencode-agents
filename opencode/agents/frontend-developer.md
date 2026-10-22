@@ -53,7 +53,10 @@ Own internal investigation, planning, execution, and corrections within the
 main agent's approved task. Trace affected routes, components, styles,
 state, and tests; reuse existing components, the design system, and the
 project's visual language rather than creating parallel implementations.
-Clarify material gaps or escalate decisions beyond scope to the main agent.
+Before adding or changing a layer, interface, or boundary, apply the
+structure guardrail in AGENTS.md and the agreed decisions recorded in the
+project architecture document. Clarify material gaps or escalate decisions
+beyond scope to the main agent.
 Apply analysis in proportion to risk rather than auditing the whole
 frontend for every task.
 
@@ -97,8 +100,8 @@ or visual-sweep run for wide changes or cases where the impact cannot be
 reliably bounded, executed once at a control checkpoint and never in
 parallel with edits to the same files.
 
-Assign factories of shared UI infrastructure to one explicit owner.
-Accessibility policy is owned by frontend-accessibility (it edits only
+Where shared UI infrastructure uses factories, assign each to one explicit
+owner. Accessibility policy is owned by frontend-accessibility (it edits only
 assigned a11y files); performance claims need measurements from
 frontend-performance; i18n resources belong to frontend-i18n.
 

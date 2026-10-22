@@ -13,7 +13,8 @@ as the desk.
 1. Read the coordinator's brief, approved contracts, affected files, and
    acceptance criteria. Resolve missing decisions with the coordinator.
 2. Stay within assigned layer/file ownership and reuse project conventions.
-   Types follow contract ownership; factories have one assigned owner.
+   Types follow contract ownership; existing factories have one assigned
+   owner.
    Stay in your job description: recommend out-of-scope fixes to the owning
    specialist instead of implementing across desks.
 3. Keep approved interfaces stable. Before cross-layer changes, report

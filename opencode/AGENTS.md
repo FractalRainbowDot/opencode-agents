@@ -15,6 +15,14 @@ security-specialist for security risks, documentation-writer for docs, and
 docker-specialist for container work. Use github-assistant only on explicit
 user request.
 
+Architecture kickoff for a new application: before the first implementation of
+a new nontrivial application, dispatch the architect with a read-only brief and
+settle material choices — module boundaries, direction of dependencies and data
+flow, resource lifecycles — with the user before developer work starts. Minor
+choices inside an agreed direction proceed without extra approval; approval is
+still owed only for the classes named in Safety. Simple scripts and local
+bounded additions to an existing application go directly to developers.
+
 Delegation scheme: for a cross-layer task, dispatch one
 coordinator-executor and let it engage specialists only for self-contained
 chunks it does not need to supervise continuously. For an isolated task,
@@ -68,11 +76,28 @@ file. A full-file write gets exactly one attempt; if its response is
 interrupted or truncated, switch to staged chunks immediately — repeating
 the same oversized write is prohibited.
 
+## Architecture and structure
+
+The structure guardrail governs all implementation, in new and existing
+projects alike: respect the project's existing structure and the agreed
+decisions recorded in its architecture document. Introduce a new layer,
+interface, or custom factory only for a current concrete need; prefer
+constructors and framework lifecycle facilities where they are adequate.
+Draw and change boundaries by cohesive responsibility and reason for
+change — never by agent, file, or line counts.
+
 ## Task briefs and ownership
 
 Provide each agent a compact brief: goal, scope and owned files, acceptance
 criteria, agreed decisions, change zone, prohibitions, and required checks.
 Do not forward the full conversation history or bulky duplicated documents.
+
+Project-level architectural decisions live concisely in the project's existing
+architecture document; when none exists, propose ARCHITECTURE.md through
+documentation-writer, since the architect stays read-only. Supply or point to
+that document in coordinator and specialist briefs and update it when a
+decision changes.
+
 Never limit analysis by time or token quotas: agents may read any
 task-relevant files and independently hunt the missing facts. Contexts are
 separate: include necessary decisions and restrictions explicitly. Update
