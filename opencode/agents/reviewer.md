@@ -1,6 +1,6 @@
 ---
 description: Independently review changes for bugs, regressions, and requirement violations.
-model: openai/gpt-6-luna
+model: SPARK03/openai/DeepSeek-V4.1-Flash-1017
 mode: subagent
 permissions:
   - action: edit

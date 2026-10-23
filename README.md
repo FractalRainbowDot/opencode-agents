@@ -61,10 +61,9 @@ before first use.
 
 ## Models
 
-- 29 profiles: `SPARK03/Qwen3.8-Flash-Next-devs02#low` (coordinators and
-  leaves alike; variants can be raised per-session or per-profile later).
-- `reviewer` alone: `openai/gpt-6-luna` (OpenAI) — independent review
-  deliberately uses a second model family.
+- All 30 subagent profiles, including `reviewer`:
+  `SPARK03/openai/DeepSeek-V4.1-Flash-1017` (configured as a model under
+  the author's `SPARK03` provider).
 - Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
   (root `model` key; the session can still switch variants/models).
 - Provider `SPARK03` is NOT stored in this repository: on each target
@@ -104,8 +103,8 @@ cp -r opencode/AGENTS.md opencode/backend-team.md ~/.config/opencode/
 cp opencode/agents/*.md ~/.config/opencode/agents/
 ```
 
-Then verify: `opencode` agent listing shows the 27 agents, and a short
-subagent launch resolves `SPARK03/Qwen3.8-Flash-Next-devs02#high`.
+Then verify: `opencode debug agents` lists all 30 custom profiles, and a
+subagent profile resolves `SPARK03/openai/DeepSeek-V4.1-Flash-1017`.
 
 ## Notes
 

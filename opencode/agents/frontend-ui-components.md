@@ -1,7 +1,7 @@
 ---
 description: Design-system components, composition, and owned component APIs.
 mode: subagent
-model: SPARK03/Qwen3.8-Flash-Next-devs02#low
+model: SPARK03/openai/DeepSeek-V4.1-Flash-1017
 permissions:
   - action: edit
     resource: "*"
