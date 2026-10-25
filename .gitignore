@@ -1,2 +1,4 @@
 # Local provider configuration contains the private endpoint; never commit it
+**/opencode.json
+**/opencode.jsonc
 opencode/*.json

@@ -1,116 +1,52 @@
-# OpenCode agent configuration — transport bundle
+# OpenCode: context-bounded delegation — v0.3.0
 
-Copy the contents of this `opencode/` folder to `~/.config/opencode/` on the
-target device (merge/overwrite), then verify the model providers resolve
-before first use.
+Model-independent project-tree rules using OpenCode V2's built-in `general`
+and read-only `explore`. Temporary specialties belong in assignment briefs,
+not a catalog of permanent backend/frontend agents.
 
-## Contents
+## Bundle and scope
 
-- `AGENTS.md` — global rules for the main agent (≈660 words: coordination,
-  task briefs, safety, verification/acceptance, result reporting).
-- `agents/` — 30 role profiles; each frontmatter pins `mode: subagent`,
-  a model, and permission rules.
-- `backend-team.md` — shared workflow for the seven backend leaf specialists.
-- `frontend-team.md` — shared workflow for the ten frontend leaf specialists.
+- `opencode/AGENTS.md`: planning, context handoffs, provider-load coordination,
+  ownership, acceptance checks, partitioned independent review, and safety.
+- `opencode/agents/general.md`: overrides the built-in executor to allow nested
+  calls to `general` and `explore`; shell commands require approval.
+- `explore` keeps its built-in read-only permissions. No custom profile needed.
 
-## Role map
+For this machine the live rules are `~/PycharmProjects/AGENTS.md` and the executor
+override is `~/PycharmProjects/.opencode/agents/general.md`. The bundle's
+`opencode/` directory is a transport folder, not the destination layout. Keep
+these files project-scoped; do not copy them into the global config directory.
+On another machine place the rules in the chosen parent project directory and
+the executor override in its `.opencode/agents/` directory. Remove legacy
+specialist profiles and team workflows only after checking for local changes.
 
-- Main agent (your session, SPARK03 Qwen default) coordinates everything.
-- Two nested teams; max two levels below the main agent:
-  - `backend-developer` (coordinator) — may launch exactly these ten
-    leaf specialists; dispatch freely within the global cap: `backend-api-router`,
-    `backend-database`, `backend-service`, `backend-cache`,
-    `backend-background-jobs`, `backend-testing`,
-    `backend-error-handling`, `backend-observability`,
-    `backend-performance`, `backend-integration`.
-  - `frontend-developer` (coordinator) — may launch exactly these ten
-    leaf specialists; dispatch freely within the global cap: `frontend-ui-components`,
-    `frontend-styling`, `frontend-state`, `frontend-routing`,
-    `frontend-forms`, `frontend-accessibility`, `frontend-testing`,
-    `frontend-performance`, `frontend-i18n`, `frontend-animation`.
-  - Shared workflow files: `backend-team.md` (backend leaves),
-    `frontend-team.md` (frontend leaves).
-- Main-level roles: `researcher`, `architect`, `tester`,
-  `reviewer` (read-only), `security-specialist` (read-only),
-  `documentation-writer`, `docker-specialist`.
-- `github-assistant` — only on explicit user request; commit/push/PR/deploy
-  are separate authorizations.
-- Resource cap: at most 5 concurrent SPARK03 subagent sessions overall
-  (coordinators + specialists; the main session does not count).
+## Runtime setup
 
-## Model runtime notes
+Use the session's selected model. No profile pins a provider, model, or reasoning
+level. Children inherit their parent's model unless explicitly requested otherwise.
+Provider credentials, endpoints, and `opencode.json(c)` are never bundled here.
 
-- The SPARK03 Qwen endpoint currently rejects image input (LiteLLM vision
-  worker panic). Declare text-only capabilities in your provider block:
+In the target OpenCode configuration, set `experimental.subagent_depth` to `3`
+to permit three child levels below the main agent. Removing a root `model`
+selection removes the forced default, but does not erase selections already
+stored on sessions or disable OpenCode's own fallback selection. Select the
+desired model in the UI when starting work. Existing provider/model settings,
+including model-specific reasoning effort, remain independent of these rules.
 
-  ```json
-  "capabilities": {
-    "tools": true,
-    "input": ["text"],
-    "output": ["text"]
-  }
-  ```
+The provider-load ceiling is a soft 10 simultaneous requests per provider,
+including the main agent and all descendants. Nested branches share allocations;
+it is not a client/proxy semaphore and cannot govern unrelated sessions. A worker
+count is only a conservative proxy when active-request telemetry is unavailable.
 
-  and never attach screenshots to sessions on this model; use a
-  vision-capable session for images or transcribe the content.
-- One model response is capped at ~30K output tokens on the author's
-  endpoint. Declare your endpoint's REAL output limit in
-  `limit.output` (the author's endpoint uses `30720`, not the model's
-  nominal 131072); over-declaring makes agents attempt oversized
-  single responses that fail to generate.
+Read `opencode/AGENTS.md` for the workflow. Graphify is an optional navigation aid,
+not a prerequisite, installation step, or replacement for source and tests.
+No quick-install script is provided.
 
-## Models
+## Verify on the target
 
-- All 30 subagent profiles, including `reviewer`:
-  `SPARK03/openai/DeepSeek-V4.1-Flash-1017` (configured as a model under
-  the author's `SPARK03` provider).
-- Main agent/orchestrator default: `SPARK03/Qwen3.8-Flash-Next-devs02`
-  (root `model` key; the session can still switch variants/models).
-- Provider `SPARK03` is NOT stored in this repository: on each target
-  device define it in `~/.config/opencode/` yourself (OpenAI-compatible,
-  your own endpoint); the API key comes from the
-  `TAILSCALE_LLM_API_KEY` environment variable. Never commit provider
-  configuration or the actual key.
-
-## Install on any machine (one line)
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/FractalRainbowDot/opencode-agents/main/install.sh | bash
-```
-
-What it does:
-
-- Installs `AGENTS.md`, `backend-team.md`, `frontend-team.md` and all
-  **30 agent profiles** into `~/.config/opencode/` (respects
-  `OPENCODE_HOME` override).
-- **Backs up** any existing file it replaces (`.bak.<timestamp>`) — your
-  own rules are preserved, never silently overwritten.
-- **Does not touch model/provider configuration at all**: an existing
-  `opencode.json` is left untouched and none is created; point your own
-  OpenCode model setup at whichever endpoint you have.
-- Prints install/verification results; target restart or relaunch of
-  OpenCode applies the new agents.
-
-Works on Linux/macOS (bash + curl). No sudo; everything stays in `$HOME`.
-The bundle author's model endpoint is on a private network — point the
-template at your own LLM endpoint.
-
-## Manual install on another device
-
-```sh
-mkdir -p ~/.config/opencode/agents
-cp -r opencode/AGENTS.md opencode/backend-team.md ~/.config/opencode/
-cp opencode/agents/*.md ~/.config/opencode/agents/
-```
-
-Then verify: `opencode debug agents` lists all 30 custom profiles, and a
-subagent profile resolves `SPARK03/openai/DeepSeek-V4.1-Flash-1017`.
-
-## Notes
-
-- Safety boundaries (tests-only, docs-only, read-only roles, destructive
-  operations) are enforced by a mix of frontmatter permissions and
-  instruction text; project-level configs can override global permissions,
-  so treat this as a default baseline, not a hard security boundary.
-- Runtime behavior (permission enforcement, nested delegation, variant
-  resolution) was not yet exercised; verify after install.
+From a child project, run `opencode debug agents` and `opencode debug config`.
+Confirm the legacy specialist IDs are gone, `general` has no pinned model and
+may call `general`/`explore`, `explore` remains read-only, and depth is three.
+Inspect config output locally: it can contain private provider information.
+Start a fresh session to test model inheritance, bounded nested delegation, and
+review isolation. Configuration inspection alone is not an end-to-end test.
